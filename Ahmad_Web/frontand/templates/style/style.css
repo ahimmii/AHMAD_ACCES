@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;500&family=Poppins:ital,wght@0,400;1,200;1,900&family=Rufina&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* ****** Page login ****** */
+.box_left{
+    background: url('/Ahmad_Web/frontand/templates/img/bg_login.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: #f7f7f7;
+    box-shadow: 0px 1px 2px 4px rgba(0, 0, 0, 0.12);
+    width: 74%;
+    height: 92vh;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-left: 48px;
+    border-radius: 25px;
+}
+.box_left > #bg_login >img{
+    width: 10rem;
+    margin-top: 4px;
+}
+.box_right{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 26%;
+    left: 63%;
+}
+.box_right > *:not(style) ~ *:not(style) {
+    margin-top: 0.5rem;
+    -webkit-margin-end: 0px;
+    margin-inline-end: 0px;
+    margin-bottom: 0px;
+    -webkit-margin-start: 0px;
+    margin-inline-start: 0px;
+}
+.cont_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    width: 25rem;
+    height: 25rem;
+    flex-direction: column;
+    box-shadow: 0px 1px 2px 4px rgba(0, 0, 0, 0.12);
+    background: #fff;
+}
+.box_right > .cont_box > .title{
+    letter-spacing: 5px;
+    font-weight: bold;
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+.input_login{
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #a6a6a6;
+    margin-top: 8px;
+    width: 20rem;
+    font-size: 12px;
+}
+.btn_login{
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+    background: #ff6d00;
+    border: 2px solid #ff7900;
+    padding: 7px 9.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #fff;
+    font-size: 17px;
+    margin-top: 35px;
+}
+.btn_login:hover{
+    background: #ff8500;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 4px 8px -2px,
+                    rgba(9, 30, 66, 0.08) 0px 0px 0px 1px;
+    border: 2px solid #ff6d00;
+}
