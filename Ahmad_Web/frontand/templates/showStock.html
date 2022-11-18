@@ -17,17 +17,21 @@
         <table class="table table-striped">
             <thead>
                 <tr>
-                    <th>Student ID</th>
-                    <th>Roll</th>
-                    <th>Class</th>
+                    <th>ID</th>
+                    <th>Product</th>
+                    <th>Qte</th>
+                    <th>B_Price</th>
+                    <th>S_price</th>
                 </tr>
             </thead>
             <tbody>
-                {% for stud in Login %}
+                {% for st in stock %}
                 <tr>
-                    <td>{{stud.id}}</td>
-                    <td>{{stud.Login}}</td>
-                    <td>{{stud.Password}}</td>
+                    <td>{{st.Id_P}}</td>
+                    <td>{{st.Product}}</td>
+                    <td>{{st.Qte}}</td>
+                    <td>{{st.B_Price}}</td>
+                    <td>{{st.S_price}}</td>
                 </tr>
                 {% endfor %}
             </tbody>

@@ -14,7 +14,10 @@
       <p>Please login to see this page.</p>
     {% endif %}
   {% endif %}
-
+  {% if user.is_authenticated %}
+  <p>You are not logged in</p>
+  <a href="{% url 'logout' %}">Log In</a>
+  {% else %}
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <table>
@@ -33,5 +36,5 @@
 
   {# Assumes you setup the password_reset view in your URLconf #}
   <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
-
+{% endif %}
 {% endblock %}

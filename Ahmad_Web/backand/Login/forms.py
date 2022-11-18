@@ -1,7 +1,7 @@
 from django import forms
-from .models import Loginmodel
+from .models import stockmodel
 
 class FormContactForm(forms.ModelForm):
     class Meta:
-        model= Loginmodel
-        fields= ["Login", "Password"]
+        model= stockmodel
+        fields= ["Product", "Qte", "B_Price", "S_price"]

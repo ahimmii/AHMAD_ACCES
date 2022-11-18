@@ -1,13 +1,13 @@
 from django.shortcuts import render
-from .models import Loginmodel
+from .models import stockmodel
 from .forms import FormContactForm
 
 
 # Create your views here.
 
 def show(request):
-    students = Loginmodel.objects.all()
-    return render(request,"../../frontand/templates/show.html",{'Login':students})
+    stock = stockmodel.objects.all()
+    return render(request,"../../frontand/templates/showStock.html",{'stock':stock})
 
 def showform(request):
     form= FormContactForm(request.POST or None)
