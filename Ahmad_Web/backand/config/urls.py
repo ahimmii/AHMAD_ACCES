@@ -20,7 +20,7 @@ from Login import views
 
 urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
-    path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/", include("django.contrib.auth.urls"), name='login'),
     path('', TemplateView.as_view(template_name='../../frontand/templates/home.html'), name='home'),
     path('showStock/',views.show, name='show'),
     path('showform/', views.showform),
