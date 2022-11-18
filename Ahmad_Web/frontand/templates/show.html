@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Django CRUD Operations</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        {% block content %}
+        {% if user.is_authenticated %}
+        Hi {{ user.username }}!
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Roll</th>
+                    <th>Class</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stud in Login %}
+                <tr>
+                    <td>{{stud.id}}</td>
+                    <td>{{stud.Login}}</td>
+                    <td>{{stud.Password}}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <p><a href="{% url 'logout' %}">Log Out</a></p>
+        {% else %}
+        <p>You are not logged in</p>
+        <a href="{% url 'login' %}">Log In</a>
+        {% endif %}
+        {% endblock %}
+    </div>
+</body>
+
+</html>
