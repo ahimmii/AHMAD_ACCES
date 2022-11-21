@@ -8,7 +8,7 @@ body{
 
 /* ****** Page login ****** */
 .box_left{
-    background: url('/Ahmad_Web/frontand/templates/img/bg_login.png');
+    background: url('img/bg_login.png');
     background-repeat: no-repeat;
     background-size: contain;
     background-color: #f7f7f7;

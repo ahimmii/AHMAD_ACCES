@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Django CRUD Operations</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <form method="get">
+            {% block content %}
+            {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <input type="text" name="Codebar">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Qte</th>
+                        <th>B_Price</th>
+                        <th>S_price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for st in stock %} 
+                        {% if st.Qte != 0 %}
+                        <tr>
+                            <td>{{st.Product}}</td>
+                            <td>{{st.Qte}}</td>
+                            <td>{{st.B_Price}}</td>
+                            <td>{{st.S_price}}</td>
+                        </tr>
+                        {% endif %}
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+            {% else %}
+                <meta http-equiv="REFRESH" content="0;url=/accounts/login/">
+            {% endif %}
+            {% endblock %}
+        </form>
+    </div>
+</body>
+
+</html>

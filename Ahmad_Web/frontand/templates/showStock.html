@@ -11,36 +11,53 @@
 
 <body>
     <div class="container">
-        {% block content %}
-        {% if user.is_authenticated %}
-        Hi {{ user.username }}!
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Product</th>
-                    <th>Qte</th>
-                    <th>B_Price</th>
-                    <th>S_price</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for st in stock %}
-                <tr>
-                    <td>{{st.Id_P}}</td>
-                    <td>{{st.Product}}</td>
-                    <td>{{st.Qte}}</td>
-                    <td>{{st.B_Price}}</td>
-                    <td>{{st.S_price}}</td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <p><a href="{% url 'logout' %}">Log Out</a></p>
-        {% else %}
-            <meta http-equiv="REFRESH" content="0;url=/accounts/login/">
-        {% endif %}
-        {% endblock %}
+        <form method="get">
+            {% block content %}
+            {% if user.is_authenticated %}
+            Hi {{ user.username }}!
+            <input type="text" name="Codebar">
+            <table class="table table-striped">
+                <thead>
+                    <tr>    
+                        <th></th>
+                        <th><h4>TOTAL</h4></th>
+                        <th><h4>{{totalqte}}</h4></th>
+                        <th><h4>{{totalB}}</h4></th>
+                        <th><h4>{{totalS}}</h4></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <th>{{test}}</th>
+                        <th>Product</th>
+                        <th>Qte</th>
+                        <th>B_Price</th>
+                        <th>S_price</th>
+                        <th>Codebar</th>
+                        <th>Datetimes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% csrf_token %}
+                    {% for st in stock %}
+                        <tr>
+                            <td>{{st.Id_P}}</td>
+                            <td>{{st.Product}}</td>
+                            <td>{{st.Qte}}</td>
+                            <td>{{st.B_Price}}</td>
+                            <td>{{st.S_price}}</td>
+                            <td>{{st.codebar}}</td>
+                            <td>{{st.datetimes}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <p><a href="{% url 'logout' %}">Log Out</a></p>
+            {% else %}
+                <meta http-equiv="REFRESH" content="0;url=/accounts/login/">
+            {% endif %}
+            {% endblock %}
+        </form>
     </div>
 </body>
 
