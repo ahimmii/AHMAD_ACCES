@@ -21,6 +21,22 @@ body,img{
 i{
   color: #919191;
 }
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #ebebeb;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  background: #6d6d6d; 
+}
 /* ******************** Page login ******************************** */
 .box_left{
   background: url('/img/bg_login.png');
@@ -172,6 +188,7 @@ button:focus,.form-control:focus,.btn:focus {
 .btn_add_product{
   position: absolute;
   top: 2.7%;
+  /* top:1.5%; */
   left: 83%;
   padding: 0.375rem 2rem;
 }
@@ -220,6 +237,38 @@ button:focus,.form-control:focus,.btn:focus {
 .btn_confirm{
   padding: 7px 3rem;
   filter: drop-shadow(3px 3px 0px rgba(0, 0, 0, 0.08));
+}
+/* ************************* Date********************************************* */
+.pull-left{
+  background: #fff; 
+  cursor: pointer; 
+  padding: 5px 10px; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+.glyphicon-calendar{
+  margin-right: 5px !important;
+  font-size: 25px;
+}
+.daterangepicker td.active, .daterangepicker td.active:hover {
+  background-color: #ff6d00 !important;
+}
+.daterangepicker td.in-range {
+  background-color: rgba(255, 109, 0, 0.44) ;
+}
+.btn-success {
+  color: #fff;
+  background: #FF6D00;
+  border: 2px solid #FF7900;
+  border-radius: 5px;
+}
+.btn-default{
+  background: #FFFFFF;
+  border: 1px solid #D0D5DD;
+  box-shadow: 0px 1px 2px rgba(16, 24, 40, 0.05);
+  border-radius: 5px;
 }
 /* ***************************** Main ******************************** */
 /* __________Global___________ */
@@ -274,6 +323,17 @@ tbody, td, tfoot, th, thead, tr {
   border-radius: 30px !important;
   border: none;
   height: 10rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.card > img{
+  width: 100px;
+  margin-right: 20px;
+}
+.card h1 {
+  margin-top: 65px;
 }
 /* _____________Stock______________ */
 .Search{
@@ -300,12 +360,12 @@ tbody, td, tfoot, th, thead, tr {
 }
 @media (min-width: 576px){
   .modal-dialog_delete {
-      max-width: 500px;
-      margin: 14.75rem 40%;
+      max-width: 320px !important;
+      /* margin: 14.75rem 40%; */
   }
   .modal-dialog {
     max-width: 500px;
-    margin: 10.75rem 27rem;
+    margin-top: 14rem;
   }
 }
 /* ========>popup<======= */
@@ -326,7 +386,8 @@ tbody, td, tfoot, th, thead, tr {
 }
 /* _______________ Sale _______________ */
 .card_basket{
-  height: 100%;
+  height: 90%;
+  max-height: 90%;
   margin-top: 4rem;
   border: 1px solid rgba(105, 105, 105, 0.5);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
