@@ -8,14 +8,15 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <link href="/Ahmad_Web/backand/Login/static/style/style.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="/style/style.css" rel="stylesheet"/>
 </head>
 <body>
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
               <div class="box_img">
-                <img src="/Ahmad_Web/backand/Login/static/img/mini_logo.png" alt="">
+                <img src="/img/mini_logo.png" alt="">
               </div>
                 <div class="position-sticky">
                     <ul class="nav flex-column">
@@ -101,7 +102,7 @@
                           <td>20</td>
                           <td>30 <span>dh</span></td>
                           <td>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
+                            <button onclick='functionConfirm(function yes() {alert("Yes")});' class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
                             <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
                           </td>
                         </tr>
@@ -110,7 +111,7 @@
                           <td>20</td>
                           <td>30 <span>dh</span></td>
                           <td>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
+                            <button  onclick='functionConfirm(function yes() {alert("Yes")});' class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
                             <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
                           </td>
                         </tr>
@@ -207,8 +208,8 @@
                     </div>
                     <!--///////// popup delete-->
                     <div class="modal" id="popup_delete">
-                      <div class="modal-dialog modal-dialog_delete">
-                        <div class="modal-content box_delete">
+                      <div class="modal-dialog modal-dialog_delete" id="confirm">
+                        <div class="modal-content box_delete" >
                     
                           <!-- Modal Header -->
                           <div class="modal-header Header_delete">
@@ -216,15 +217,15 @@
                           </div>
                     
                           <!-- Modal body -->
-                          <div class="modal-body ">
+                          <div class=" message modal-body" >
                             <h5>Delete Product</h5>
                             <p>Are you sure you want to delete this product ? </p>
                           </div>
                     
                           <!-- Modal footer -->
                           <div class="modal-footer">
-                            <button type="button" class="btn-cancel btn_cancel_delete" data-bs-dismiss="modal" >Cancel</button>
-                            <button type="button" class="btn btn_delete_product" >Delete</button>
+                            <button type="button" class="cancel btn-cancel btn_cancel_delete " data-bs-dismiss="modal" >Cancel</button>
+                            <button type="button" class="yes btn btn_delete_product" >Delete</button>
                           </div>
                     
                         </div>
@@ -237,5 +238,18 @@
         </div>
     </div>
   </div>
+  <script>
+    function functionConfirm( myYes, myNo, cancel) {
+       var confirmBox = $("#confirm");
+       // confirmBox.find(".message").text(msg);
+       confirmBox.find(".yes,.cancel").unbind().click(function() {
+          confirmBox.hide();
+       });
+       confirmBox.find(".yes").click(myYes);
+       // confirmBox.find(".no").click(myNo);
+       confirmBox.find(".no").click(cancel);
+       confirmBox.show();
+    }
+ </script>
 </body>
 </html>

@@ -333,7 +333,7 @@ tbody, td, tfoot, th, thead, tr {
   justify-content: center;
   align-items: center;
 }
-.card  img{
+.card > img{
   width: 100px;
   margin-right: 20px;
 }
