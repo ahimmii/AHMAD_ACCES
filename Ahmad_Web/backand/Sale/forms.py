@@ -1,7 +1,13 @@
 from django import forms
-from .models import salemodel
+from Dashboard.models import ordermodel
+from .models import basketmodel
 
-class stockForm(forms.ModelForm):
+class orderForm(forms.ModelForm):
     class Meta:
-        model= salemodel
-        fields= ["Id_ord","Id_P"]
+        model= ordermodel
+        fields= ["Id_orders", "Id_P", "qte", "Price","Dtime"]
+
+class basketForm(forms.ModelForm):
+    class Meta:
+        model= basketmodel
+        fields= ["id_B", "qte", "Id_P", "Price"]

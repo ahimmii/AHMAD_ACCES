@@ -1,255 +1,283 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css" integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
+    <link rel="stylesheet"
+        href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
+        integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <link href="/style/style.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <link href="{% static 'style/style.css' %}" rel="stylesheet" />
+    <script src="{% static 'js/script.js' %}"></script>
 </head>
+
 <body>
     <div class="container-fluid">
         <div class="row">
             <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-              <div class="box_img">
-                <img src="/img/mini_logo.png" alt="">
-              </div>
+                <div class="box_img">
+                    <h1>logo</h1>
+
+                </div>
                 <div class="position-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                          <a class="nav-link" aria-current="page" href="dashboard.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-                            <span class="ml-2">Dashboard</span>
-                          </a>
+                            <a class="nav-link" aria-current="page" href="{% url 'home' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-home">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span class="ml-2">Dashboard</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="Stock.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-file"><path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path><polyline points="13 2 13 9 20 9"></polyline></svg>
-                            <span class="ml-2">Stock</span>
-                          </a>
+                            <a class="nav-link active" href="">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-file">
+                                    <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                                    <polyline points="13 2 13 9 20 9"></polyline>
+                                </svg>
+                                <span class="ml-2">Stock</span>
+                            </a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="sale.html">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-cart"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
-                            <span class="ml-2">Sale</span>
-                          </a>
+                            <a class="nav-link" href="{% url 'sale' %}">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="feather feather-shopping-cart">
+                                    <circle cx="9" cy="21" r="1"></circle>
+                                    <circle cx="20" cy="21" r="1"></circle>
+                                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                                </svg>
+                                <span class="ml-2">Sale</span>
+                            </a>
                         </li>
-                      </ul>
+                    </ul>
                 </div>
                 <div class="logout">
-                  <h6>Mariam Bouzine</h6>
-                  <button><i class="las la-sign-out-alt"></i></button>
+                    <h6>Hi {{ user.username }}</h6>
+                    <a href="{% url 'logout' %}"><i class="las la-sign-out-alt"></i></a>
                 </div>
             </nav>
             <main class="col-md-9 ml-sm-auto col-lg-10 px-md-4 py-4">
                 <nav aria-label="breadcrumb">
-                    <div class="col">
-                      <div class="input-group Search" id="datepicker">
-                        <span class="input-group-append">
-                          <span class="input-group-text  d-block">
-                            <i class="las la-search"></i>                           
-                          </span>
-                        </span> 
-                        <input type="text" placeholder="Search" class="form-control input_control" id="Search"/>                     
-                      </div>
-                      <button type="button" data-bs-toggle="modal" data-bs-target="#myModal" class="btn_add_product"><i class="las la-plus"></i> Add Product</button>
-                    </div>
+                    <form method="get">
+                        <div class="col">
+                            <div class="input-group Search" id="datepicker">
+                                <span class="input-group-append">
+                                    <span class="input-group-text  d-block">
+                                        <i class="las la-search"></i>
+                                    </span>
+                                </span>
+                                <input type="text" placeholder="Search" class="form-control input_control" id="Search"
+                                    name="Search" />
+                            </div>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#myModal"
+                                class="btn_add_product"><i class="las la-plus"></i> Add Product</button>
+                        </div>
+                    </form>
                 </nav>
                 <div class="modal" id="myModal">
                     <div class="modal-dialog">
-                      <div class="modal-content">
-                  
-                        <!-- Modal Header -->
-                        <div class="modal-header">
+                        <div class="modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                            </div>
+
+                            <!-- Modal body -->
+                            <form method="post">
+                                {% csrf_token %}
+                                <div class="modal-body">
+
+                                    <input type="text" name="Product" maxlength="250" required="" id="id_Product"
+                                        placeholder="Product name" class="form-control input_popup"><br>
+
+                                    <input type="number" name="Qte" required="" id="id_Qte" placeholder="Quantity"
+                                        class="form-control input_popup"><br>
+
+                                    <input type="number" name="B_Price" step="any" required="" id="id_B_Price"
+                                        placeholder="Buying Price" class="form-control input_popup"><br>
+
+                                    <input type="number" name="S_price" step="any" required="" id="id_S_price"
+                                        placeholder="Selling Price" class="form-control input_popup"><br>
+
+                                    <input type="text" name="codebar" maxlength="80" required="" id="id_codebar"
+                                        placeholder="Codebar" class="form-control input_popup"><br>
+
+                                    <input type="date" name="datetimes" required="" id="id_datetimes"
+                                        placeholder="Datetimes" class="form-control input_popup"><br>
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn-cancel" data-bs-dismiss="modal">Cancel</button>
+                                    <button type="submit" class="btn btn_save_product">Save</button>
+                                </div>
+                            </form>
                         </div>
-                  
-                        <!-- Modal body -->
-                        <div class="modal-body">
-                            <input type="text" placeholder="Product name" class="form-control input_popup" id="input_popup"/> <br>                    
-                            <input type="text" placeholder="Quantity" class="form-control input_popup" id="input_popup"/>  <br>                   
-                            <input type="text" placeholder="Buying Price" class="form-control input_popup" id="input_popup"/>   <br>    
-                            <input type="text" placeholder="Selling Price" class="form-control input_popup" id="input_popup"/>   <br>                
-                        </div>
-                  
-                        <!-- Modal footer -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn-cancel" data-bs-dismiss="modal" >Cancel</button>
-                            <button type="button" class="btn btn_save_product" >Save</button>
-                        </div>
-                  
-                      </div>
                     </div>
                 </div>
                 <br><br>
                 <div class="row">
-                  <div class="container mt-3">          
-                    <table class="table table-striped  table-scroll">
-                      <thead>
-                        <tr>
-                          <th>Prudact</th>
-                          <th>Quantity</th>
-                          <th>Total</th>
-                          <th></th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>test</td>
-                          <td>20</td>
-                          <td>30 <span>dh</span></td>
-                          <td>
-                            <button onclick='functionConfirm(function yes() {alert("Yes")});' class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>test</td>
-                          <td>20</td>
-                          <td>30 <span>dh</span></td>
-                          <td>
-                            <button  onclick='functionConfirm(function yes() {alert("Yes")});' class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>test</td>
-                          <td>20</td>
-                          <td>30 <span>dh</span></td>
-                          <td>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>test</td>
-                          <td>20</td>
-                          <td>30 <span>dh</span></td>
-                          <td>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>test</td>
-                          <td>20</td>
-                          <td>30 <span>dh</span></td>
-                          <td>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
-                          </td>
-                        </tr>
-                        <tr>
-                          <td>test</td>
-                          <td>20</td>
-                          <td>30 <span>dh</span></td>
-                          <td>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
-                          </td>
-                        </tr>
-                          <tr>
-                          <td>test</td>
-                          <td>20</td>
-                          <td>30 <span>dh</span></td>
-                          <td>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_delete"><i class="las la-trash-alt"></i></button>
-                            <button class="btn_crud" type="button" data-bs-toggle="modal" data-bs-target="#popup_edite"><i class="las la-pen"></i></button>
-                          </td>
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div class="container box_totale_stock">
-                      <div class="row">
-                        <div class="col">
-                          <h5>Total Products </h5>
-                          <p>100</p>
+                    <div class="container mt-3">
+                        <table class="table table-striped  table-scroll">
+                            <thead>
+                                <tr>
+                                    <th>Prudact</th>
+                                    <th>Quantity</th>
+                                    <th>Buying Price</th>
+                                    <th>Selling Price</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for st in stock %}
+                                {% if st.Qte <= 1 %} 
+                                <tr bgcolor="#FF1111">
+                                    {% else %}
+                                    <tr>
+                                        {% endif %}
+                                        <td>{{st.Product}}</td>
+                                        <td>{{st.Qte}}</td>
+                                        <td>{{st.B_Price}} <span>DH</span></td>
+                                        <td>{{st.S_price}} <span>DH</span></td>
+                                        <td>
+                                            <a class="btn_crud" name="delete" href="{{st.Id_P}}"
+                                                onclick="showAlert()"><i class="las la-trash-alt"></i></a>
+                                            <a class="btn_crud" name="edit" href="{% url 'model' %}?edit={{st.Id_P}}"><i
+                                                    class="las la-pen"></i></a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+
+                            </tbody>
+                        </table>
+                        <div class="container box_totale_stock">
+                            <div class="row">
+                                <div class="col">
+                                    <h5>Total Quantity</h5>
+                                    <p>{{totalqte}}</p>
+                                </div>
+                                <div class="col">
+                                    <h5>Total Buying Price </h5>
+                                    <p>{{totalB}} DH</p>
+                                </div>
+                                <div class="col">
+                                    <h5>Total Pure income V</h5>
+                                    <p>{{totalS}} DH</p>
+                                </div>
+                                <!-- <div class="col">
+                              </div> -->
+                            </div>
                         </div>
-                        <div class="col">
-                          <h5>Total Quantity </h5>
-                          <p>100</p>
+                        <!-- //////////////// popup edite -->
+
+                        <div class="modal fade" id="edite" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <div class="modal-body">
+
+                                            <input type="text" name="Product" maxlength="250" required=""
+                                                id="id_Product" placeholder="Product name"
+                                                class="form-control input_popup" value="{{product}}"><br>
+
+                                            <input type="number" name="Qte" required="" id="id_Qte"
+                                                placeholder="Quantity" class="form-control input_popup"
+                                                value="{{Quantity}}"><br>
+
+                                            <input type="number" name="B_Price" step="any" required="" id="id_B_Price"
+                                                placeholder="Buying Price" class="form-control input_popup"
+                                                value="{{BPrice}}"><br>
+
+                                            <input type="number" name="S_price" step="any" required="" id="id_S_price"
+                                                placeholder="Selling Price" class="form-control input_popup"
+                                                value="{{SPrice}}"><br>
+
+                                            <input type="text" name="codebar" maxlength="80" required="" id="id_codebar"
+                                                placeholder="Codebar" class="form-control input_popup"
+                                                value="{{Codebaredit}}"><br>
+
+                                            <input type="date" name="datetimes" required="" id="id_datetimes"
+                                                placeholder="Datetimes" class="form-control input_popup"><br>
+                                        </div>
+
+                                        <!-- Modal footer -->
+
+                                        <div class="modal-footer">
+                                            <a href="{% url 'stock' %}" class="btn-cancel">Close</a>
+                                            <button type="submit" class="btn btn_save_product" value="Update">Save</button>
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
                         </div>
-                        <div class="col">
-                          <h5>Total </h5>
-                          <p>100</p>
+
+                        <!--///////// popup delete-->
+                        <div class="modal fade" id="Delete" data-bs-backdrop="static" data-bs-keyboard="false"
+                            tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog_delete">
+                                <div class="modal-content box_delete">
+
+                                    <!-- Modal Header -->
+                                    <div class="modal-header Header_delete">
+                                        <i class="las la-exclamation-circle"></i>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body ">
+                                        <h5>Delete Product</h5>
+                                        <p>Are you sure you want to delete this product ? </p>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn-cancel btn_cancel_delete"
+                                            data-bs-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn_delete_product">Delete</button>
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
-                        <!-- <div class="col">
-                        </div> -->
-                      </div>
+
                     </div>
-                    <!-- //////////////// popup edite -->
-                    <div class="modal" id="popup_edite">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                    
-                          <!-- Modal Header -->
-                          <div class="modal-header">
-                          </div>
-                    
-                          <!-- Modal body -->
-                          <div class="modal-body">
-                              <input type="text" placeholder="Product name" class="form-control input_popup" id="input_popup"/> <br>                    
-                              <input type="text" placeholder="Quantity" class="form-control input_popup" id="input_popup"/>  <br>                   
-                              <input type="text" placeholder="Buying Price" class="form-control input_popup" id="input_popup"/>   <br>    
-                              <input type="text" placeholder="Selling Price" class="form-control input_popup" id="input_popup"/>   <br>                
-                          </div>
-                    
-                          <!-- Modal footer -->
-                          <div class="modal-footer">
-                              <button type="button" class="btn-cancel" data-bs-dismiss="modal" >Cancel</button>
-                            <button type="button" class="btn btn_save_product" >Save</button>
-                          </div>
-                    
-                        </div>
-                      </div>
-                    </div>
-                    <!--///////// popup delete-->
-                    <div class="modal" id="popup_delete">
-                      <div class="modal-dialog modal-dialog_delete" id="confirm">
-                        <div class="modal-content box_delete" >
-                    
-                          <!-- Modal Header -->
-                          <div class="modal-header Header_delete">
-                            <i class="las la-exclamation-circle"></i>
-                          </div>
-                    
-                          <!-- Modal body -->
-                          <div class=" message modal-body" >
-                            <h5>Delete Product</h5>
-                            <p>Are you sure you want to delete this product ? </p>
-                          </div>
-                    
-                          <!-- Modal footer -->
-                          <div class="modal-footer">
-                            <button type="button" class="cancel btn-cancel btn_cancel_delete " data-bs-dismiss="modal" >Cancel</button>
-                            <button type="button" class="yes btn btn_delete_product" >Delete</button>
-                          </div>
-                    
-                        </div>
-                      </div>
-                    </div>
-                  
-                  </div>
                 </div>
             </main>
         </div>
     </div>
-  </div>
-  <script>
-    function functionConfirm( myYes, myNo, cancel) {
-       var confirmBox = $("#confirm");
-       // confirmBox.find(".message").text(msg);
-       confirmBox.find(".yes,.cancel").unbind().click(function() {
-          confirmBox.hide();
-       });
-       confirmBox.find(".yes").click(myYes);
-       // confirmBox.find(".no").click(myNo);
-       confirmBox.find(".no").click(cancel);
-       confirmBox.show();
-    }
- </script>
+    </div>
 </body>
+
+<script>
+    function showAlert() {
+        var myText = "";
+        alert(myText);
+    }
+</script>
+
+{% block script %}
+{% endblock %}
+
 </html>

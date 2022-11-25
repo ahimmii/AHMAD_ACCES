@@ -1,11 +1,10 @@
-
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
     <link href="{% static 'style/style.css' %}" rel="stylesheet"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="{% static 'js/script.js' %}"></script>
@@ -34,7 +33,7 @@
         <div >
             <div class="box_left">
                 <div id="bg_login">
-                    <img src="{% static 'img/logo.png' %}" alt="">
+                    <img src="{% static '/img/logo.png' %}" alt="">
                 </div>
             </div>
             <div class="box_right">

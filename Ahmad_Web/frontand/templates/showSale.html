@@ -27,19 +27,69 @@
                 </thead>
                 <tbody>
                     {% csrf_token %}
-                    {% for st in stock %} 
-                        {% if st.Qte != 0 %}
-                        <tr>
-                            <td>{{st.Product}}</td>
-                            <td>{{st.Qte}}</td>
-                            <td>{{st.B_Price}}</td>
-                            <td>{{st.S_price}}</td>
-                        </tr>
-                        {% endif %}
+                    {% for st in stock %}
+                    {% if st.Qte != 0 %}
+                    <tr>
+                        <td>{{st.Product}}</td>
+                        <td>{{st.Qte}}</td>
+                        <td>{{st.B_Price}}</td>
+                        <td>{{st.S_price}}</td>
+                    </tr>
+                    {% endif %}
                     {% endfor %}
-                    
+
                 </tbody>
             </table>
+            <form method="post" class="post-form" action="">
+                <input type="hidden" name="csrfmiddlewaretoken"
+                    value="nhjH4FJCanghLENgX7cVPAc57r5udyqvbdc0LaOghhGVwJe8WhAp0PoSgeU1SgTY">
+                <ul class="errorlist">
+                    <li>This field is required.</li>
+                </ul>
+                <p>
+                    <label for="id_Id_P">Id P:</label>
+                    <select name="Id_P" required="" id="id_Id_P">
+                        <option value="{{st.Id_P}}" selected="">{{st.Product}}</option>
+                        {% for st in prudatc %}
+                        <option value="{{st.Id_P}}">{{st.Product}}</option>
+                        {% endfor %}
+
+                    </select>
+
+
+                </p>
+
+                <ul class="errorlist">
+                    <li>This field is required.</li>
+                </ul>
+                <p>
+                    <label for="id_qte">Qte:</label>
+                    <input type="number" name="qte" required="" id="id_qte">
+
+
+                </p>
+
+                <ul class="errorlist">
+                    <li>This field is required.</li>
+                </ul>
+                <p>
+                    <label for="id_Price">Price:</label>
+                    <input type="number" name="Price" step="any" required="" id="id_Price">
+
+
+                </p>
+
+                <ul class="errorlist">
+                    <li>This field is required.</li>
+                </ul>
+                <p>
+                    <label for="id_Dtime">Dtime:</label>
+                    <input type="date" name="Dtime" required="" id="id_Dtime">
+                </p>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-default">Submit</button>
+                </div>
+            </form>
             <p><a href="{% url 'logout' %}">Log Out</a></p>
             {% else %}
                 <meta http-equiv="REFRESH" content="0;url=/accounts/login/">
