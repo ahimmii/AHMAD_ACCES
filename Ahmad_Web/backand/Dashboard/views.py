@@ -38,7 +38,10 @@ def showorder(request):
         i = 0
         for st in orders:
             if st.Dtime.strftime("%d/%m/%Y") == dates:
+                T_income += (st.Price - st.Id_P.B_Price) * st.qte
                 st.Price = st.Price * st.qte
+                T_selling += st.Price
+                T_qte += st.qte
                 orderlist[i] = st
                 i += 1 
         dates = datetime.now().strftime("%Y-%m-%d")

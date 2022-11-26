@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.template import loader
 from datetime import datetime
@@ -69,7 +69,7 @@ def addorder(request):
 
         if form.is_valid():
             form.save()
-
+        return redirect('sale')
     
 
     if request.GET.get('Id'):
@@ -90,33 +90,25 @@ def addorder(request):
         }
 
     return HttpResponse(template.render(info, request))
+    
 
 def Delete(request):
 
     basket = None
-    T_Prix = 0.0
+
+    template = loader.get_template('Delete.html')
 
     if basketmodel.objects.all():
         basket = basketmodel.objects.all()
         for ba in basket:
             basketmodel.objects.get(id_B=ba.id_B).delete()
-    stock = stockmodel.objects.all()
-    template = loader.get_template('sale.html')
-
-    info = {
-                'stock': stock,
-                'basket': basket,
-                'T_Prix': T_Prix,
-            }
-
-    return HttpResponse(template.render(info, request))
+    return redirect('sale')
 
 
 def Confirm(request):
 
-    T_Prix = 0.0
-    basket = None
     form = None
+    basket = None
     updated_request = request.POST.copy()
     ft_date = datetime.now().strftime("%Y-%m-%d")
     
@@ -147,16 +139,8 @@ def Confirm(request):
                 fm.save()
             basketmodel.objects.get(id_B=ba.id_B).delete()
 
+
+    return redirect('sale')
+
         
-    stock = stockmodel.objects.all()
-    template = loader.get_template('Basket.html')
-
-    info = {
-                'stock': stock,
-                'basket': basket,
-                'form': form,
-                'date': ft_date,
-                'T_Prix': T_Prix,
-            }
-
-    return HttpResponse(template.render(info, request))
+    

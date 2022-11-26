@@ -24,7 +24,7 @@
     <div class="row">
       <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
         <div class="box_img">
-          <h1>logo</h1>
+          <img src="{% static 'img/mini_logo.png' %}" alt="">
 
         </div>
         <div class="position-sticky">
@@ -101,7 +101,7 @@
               <tbody>
                 {% csrf_token %}
                 {% for st in stock %}
-                {% if st.Qte != 0 %}
+                {% if st.Qte > 0 %}
                 <tr>
                   <td>{{st.Product}}</td>
                   <td>{{st.Qte}}</td>
@@ -151,7 +151,7 @@
                   <div class="modal-footer">
                     <a class="btn-cancel" href="{% url 'sale' %}">Cancel</a>
 
-                    <button type="submit" class="btn btn_save_product">Save</button>
+                    <button type="submit" class="btn btn_save_product" >Save</button>
 
                   </div>
                 </form>

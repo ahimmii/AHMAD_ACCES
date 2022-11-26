@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.views.decorators.cache import never_cache
 from django.core.exceptions import PermissionDenied
@@ -86,13 +86,8 @@ def model(request):
                     fm = stockForm(request.POST, instance=pi)
                     if fm.is_valid():
                         fm.save()
-        template = loader.get_template('Stock.html')
+        return redirect('stock')
 
-        info = {
-            'stock': stock,
-        }
-
-        return HttpResponse(template.render(info, request))
                         
     if request.GET.get('Codebar'):
         Codebar = str(request.GET.get('Codebar'))
@@ -155,10 +150,4 @@ def Delete(request, Id_P):
 
     stockmodel.objects.get(Id_P=Id_P).delete()
     stock = stockmodel.objects.all()
-    template = loader.get_template('Stock.html')
-
-    info = {
-            'stock': stock,
-    }
-
-    return HttpResponse(template.render(info, request))
+    return redirect('stock')
