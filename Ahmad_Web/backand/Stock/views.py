@@ -24,9 +24,14 @@ def showstock(request):
     template = loader.get_template('Stock.html')
     
     
-    orderlist = [[]] * 1
+
     if request.GET.get('Search'):
         Codebar = str(request.GET.get('Search'))
+        for st in stock:
+            if st.codebar == Codebar:
+                i += 1
+        orderlist = [[]] * i
+        i = 0
         for st in stock:
             if st.codebar == Codebar:
                 orderlist[i] = st
