@@ -6,6 +6,7 @@ from django.http import HttpResponseRedirect
 from django.template import loader
 from .models import stockmodel
 from .forms import stockForm
+from datetime import datetime
 
 # Create your views here.
 
@@ -14,10 +15,11 @@ def showstock(request):
     totalB = 0
     totalS = 0
     totalqte = 0
+    dates = None
  
     stock = stockmodel.objects.all()
     form = stockForm(request.POST)
-    
+    dates = datetime.now().strftime("%Y-%m-%d")
     if form.is_valid():
         form.save()
 
@@ -54,6 +56,7 @@ def showstock(request):
             'totalqte': totalqte,
             'form': stockForm(),
             'stock': stock,
+	    'datetime': dates,
         }
     else:
         info = {
